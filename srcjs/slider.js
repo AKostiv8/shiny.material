@@ -87,6 +87,7 @@ const SliderInput = ({ configuration, value, setValue }) => {
             valueLabelDisplay="auto"
             marks={marks}
             onChangeCommitted={handleOnChange}
+            disabled={configuration.disabled}
           />
         </Stack>
     </ThemeProvider>

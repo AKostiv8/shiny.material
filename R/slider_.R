@@ -10,7 +10,8 @@ slider_Input <- function(
     inputId,
     default = 2010,
     secondaryColor = '#ffffff',
-    mainColor = '#e05151'
+    mainColor = '#e05151',
+    disabled = FALSE
 ) {
   reactR::createReactShinyInput(
     inputId,
@@ -25,7 +26,8 @@ slider_Input <- function(
     default = default,
     list(
       secondaryColor = secondaryColor,
-      mainColor = mainColor
+      mainColor = mainColor,
+      disabled = disabled
     ),
     htmltools::tags$div
   )
