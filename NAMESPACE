@@ -2,8 +2,10 @@
 
 export(slider_Input)
 export(toggl_btn_Input)
+export(toggl_btn_group_Input)
 export(updateSlider_Input)
 export(updateToggl_btn_Input)
+export(updateToggl_btn_group_Input)
 importFrom(htmltools,htmlDependency)
 importFrom(htmltools,tags)
 importFrom(reactR,createReactShinyInput)

@@ -21225,6 +21225,628 @@ var switchClasses = Object(_mui_utils__WEBPACK_IMPORTED_MODULE_0__["unstable_gen
 
 /***/ }),
 
+/***/ "./node_modules/@mui/material/ToggleButton/ToggleButton.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButton/ToggleButton.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles */ "./node_modules/@mui/material/styles/index.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@mui/material/ButtonBase/index.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
+/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/useThemeProps */ "./node_modules/@mui/material/styles/useThemeProps.js");
+/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
+/* harmony import */ var _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./toggleButtonClasses */ "./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__);
+'use client';
+
+// @inheritedComponent ButtonBase
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+var _excluded = ["children", "className", "color", "disabled", "disableFocusRipple", "fullWidth", "onChange", "onClick", "selected", "size", "value"];
+
+
+
+
+
+
+
+
+
+
+
+var useUtilityClasses = function useUtilityClasses(ownerState) {
+  var classes = ownerState.classes,
+    fullWidth = ownerState.fullWidth,
+    selected = ownerState.selected,
+    disabled = ownerState.disabled,
+    size = ownerState.size,
+    color = ownerState.color;
+  var slots = {
+    root: ['root', selected && 'selected', disabled && 'disabled', fullWidth && 'fullWidth', "size".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__["default"])(size)), color]
+  };
+  return Object(_mui_base__WEBPACK_IMPORTED_MODULE_5__["unstable_composeClasses"])(slots, _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_11__["getToggleButtonUtilityClass"], classes);
+};
+var ToggleButtonRoot = Object(_styles_styled__WEBPACK_IMPORTED_MODULE_10__["default"])(_ButtonBase__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  name: 'MuiToggleButton',
+  slot: 'Root',
+  overridesResolver: function overridesResolver(props, styles) {
+    var ownerState = props.ownerState;
+    return [styles.root, styles["size".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_8__["default"])(ownerState.size))]];
+  }
+})(function (_ref) {
+  var _extends2;
+  var theme = _ref.theme,
+    ownerState = _ref.ownerState;
+  var selectedColor = ownerState.color === 'standard' ? theme.palette.text.primary : theme.palette[ownerState.color].main;
+  var selectedColorChannel;
+  if (theme.vars) {
+    selectedColor = ownerState.color === 'standard' ? theme.vars.palette.text.primary : theme.vars.palette[ownerState.color].main;
+    selectedColorChannel = ownerState.color === 'standard' ? theme.vars.palette.text.primaryChannel : theme.vars.palette[ownerState.color].mainChannel;
+  }
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.button, {
+    borderRadius: (theme.vars || theme).shape.borderRadius,
+    padding: 11,
+    border: "1px solid ".concat((theme.vars || theme).palette.divider),
+    color: (theme.vars || theme).palette.action.active
+  }, ownerState.fullWidth && {
+    width: '100%'
+  }, (_extends2 = {}, _defineProperty(_extends2, "&.".concat(_toggleButtonClasses__WEBPACK_IMPORTED_MODULE_11__["default"].disabled), {
+    color: (theme.vars || theme).palette.action.disabled,
+    border: "1px solid ".concat((theme.vars || theme).palette.action.disabledBackground)
+  }), _defineProperty(_extends2, '&:hover', {
+    textDecoration: 'none',
+    // Reset on mouse devices
+    backgroundColor: theme.vars ? "rgba(".concat(theme.vars.palette.text.primaryChannel, " / ").concat(theme.vars.palette.action.hoverOpacity, ")") : Object(_styles__WEBPACK_IMPORTED_MODULE_6__["alpha"])(theme.palette.text.primary, theme.palette.action.hoverOpacity),
+    '@media (hover: none)': {
+      backgroundColor: 'transparent'
+    }
+  }), _defineProperty(_extends2, "&.".concat(_toggleButtonClasses__WEBPACK_IMPORTED_MODULE_11__["default"].selected), {
+    color: selectedColor,
+    backgroundColor: theme.vars ? "rgba(".concat(selectedColorChannel, " / ").concat(theme.vars.palette.action.selectedOpacity, ")") : Object(_styles__WEBPACK_IMPORTED_MODULE_6__["alpha"])(selectedColor, theme.palette.action.selectedOpacity),
+    '&:hover': {
+      backgroundColor: theme.vars ? "rgba(".concat(selectedColorChannel, " / calc(").concat(theme.vars.palette.action.selectedOpacity, " + ").concat(theme.vars.palette.action.hoverOpacity, "))") : Object(_styles__WEBPACK_IMPORTED_MODULE_6__["alpha"])(selectedColor, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+      // Reset on touch devices, it doesn't add specificity
+      '@media (hover: none)': {
+        backgroundColor: theme.vars ? "rgba(".concat(selectedColorChannel, " / ").concat(theme.vars.palette.action.selectedOpacity, ")") : Object(_styles__WEBPACK_IMPORTED_MODULE_6__["alpha"])(selectedColor, theme.palette.action.selectedOpacity)
+      }
+    }
+  }), _extends2), ownerState.size === 'small' && {
+    padding: 7,
+    fontSize: theme.typography.pxToRem(13)
+  }, ownerState.size === 'large' && {
+    padding: 15,
+    fontSize: theme.typography.pxToRem(15)
+  });
+});
+var ToggleButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function ToggleButton(inProps, ref) {
+  var props = Object(_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__["default"])({
+    props: inProps,
+    name: 'MuiToggleButton'
+  });
+  var children = props.children,
+    className = props.className,
+    _props$color = props.color,
+    color = _props$color === void 0 ? 'standard' : _props$color,
+    _props$disabled = props.disabled,
+    disabled = _props$disabled === void 0 ? false : _props$disabled,
+    _props$disableFocusRi = props.disableFocusRipple,
+    disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+    _props$fullWidth = props.fullWidth,
+    fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+    onChange = props.onChange,
+    onClick = props.onClick,
+    selected = props.selected,
+    _props$size = props.size,
+    size = _props$size === void 0 ? 'medium' : _props$size,
+    value = props.value,
+    other = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
+  var ownerState = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
+    color: color,
+    disabled: disabled,
+    disableFocusRipple: disableFocusRipple,
+    fullWidth: fullWidth,
+    size: size
+  });
+  var classes = useUtilityClasses(ownerState);
+  var handleChange = function handleChange(event) {
+    if (onClick) {
+      onClick(event, value);
+      if (event.defaultPrevented) {
+        return;
+      }
+    }
+    if (onChange) {
+      onChange(event, value);
+    }
+  };
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__["jsx"])(ToggleButtonRoot, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    disabled: disabled,
+    focusRipple: !disableFocusRipple,
+    ref: ref,
+    onClick: handleChange,
+    onChange: onChange,
+    value: value,
+    ownerState: ownerState,
+    "aria-pressed": selected
+  }, other, {
+    children: children
+  }));
+});
+ true ? ToggleButton.propTypes /* remove-proptypes */ = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  /**
+   * The color of the button when it is in an active state.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * @default 'standard'
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a /* @typescript-to-proptypes-ignore */.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['standard', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string]),
+  /**
+   * If `true`, the component is disabled.
+   * @default false
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  /**
+   * If `true`, the  keyboard focus ripple is disabled.
+   * @default false
+   */
+  disableFocusRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  /**
+   * If `true`, the ripple effect is disabled.
+   *
+   * ⚠️ Without a ripple there is no styling for :focus-visible by default. Be sure
+   * to highlight the element by applying separate styles with the `.Mui-focusVisible` class.
+   * @default false
+   */
+  disableRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  /**
+   * If `true`, the button will take up the full width of its container.
+   * @default false
+   */
+  fullWidth: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  /**
+   * Callback fired when the state changes.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event The event source of the callback.
+   * @param {any} value of the selected button.
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+  /**
+   * Callback fired when the button is clicked.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event The event source of the callback.
+   * @param {any} value of the selected button.
+   */
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+  /**
+   * If `true`, the button is rendered in an active state.
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+  /**
+   * The size of the component.
+   * The prop defaults to the value inherited from the parent ToggleButtonGroup component.
+   * @default 'medium'
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a /* @typescript-to-proptypes-ignore */.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium', 'large']), prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string]),
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool])), prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object]),
+  /**
+   * The value to associate with the button when selected in a
+   * ToggleButtonGroup.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a /* @typescript-to-proptypes-ignore */.any.isRequired
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (ToggleButton);
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButton/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButton/index.js ***!
+  \**********************************************************/
+/*! exports provided: default, toggleButtonClasses, getToggleButtonUtilityClass */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ToggleButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleButton */ "./node_modules/@mui/material/ToggleButton/ToggleButton.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _ToggleButton__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggleButtonClasses */ "./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "toggleButtonClasses", function() { return _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getToggleButtonUtilityClass", function() { return _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_1__["getToggleButtonUtilityClass"]; });
+
+'use client';
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js ***!
+  \************************************************************************/
+/*! exports provided: getToggleButtonUtilityClass, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getToggleButtonUtilityClass", function() { return getToggleButtonUtilityClass; });
+/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ "./node_modules/@mui/utils/esm/index.js");
+/* harmony import */ var _generateUtilityClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../generateUtilityClass */ "./node_modules/@mui/material/generateUtilityClass/index.js");
+
+
+function getToggleButtonUtilityClass(slot) {
+  return Object(_generateUtilityClass__WEBPACK_IMPORTED_MODULE_1__["default"])('MuiToggleButton', slot);
+}
+var toggleButtonClasses = Object(_mui_utils__WEBPACK_IMPORTED_MODULE_0__["unstable_generateUtilityClasses"])('MuiToggleButton', ['root', 'disabled', 'selected', 'standard', 'primary', 'secondary', 'sizeSmall', 'sizeMedium', 'sizeLarge']);
+/* harmony default export */ __webpack_exports__["default"] = (toggleButtonClasses);
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/index.js");
+/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
+/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/useThemeProps */ "./node_modules/@mui/material/styles/useThemeProps.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
+/* harmony import */ var _isValueSelected__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./isValueSelected */ "./node_modules/@mui/material/ToggleButtonGroup/isValueSelected.js");
+/* harmony import */ var _toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./toggleButtonGroupClasses */ "./node_modules/@mui/material/ToggleButtonGroup/toggleButtonGroupClasses.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__);
+'use client';
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+var _excluded = ["children", "className", "color", "disabled", "exclusive", "fullWidth", "onChange", "orientation", "size", "value"];
+
+
+
+
+
+
+
+
+
+
+
+var useUtilityClasses = function useUtilityClasses(ownerState) {
+  var classes = ownerState.classes,
+    orientation = ownerState.orientation,
+    fullWidth = ownerState.fullWidth,
+    disabled = ownerState.disabled;
+  var slots = {
+    root: ['root', orientation === 'vertical' && 'vertical', fullWidth && 'fullWidth'],
+    grouped: ['grouped', "grouped".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_9__["default"])(orientation)), disabled && 'disabled']
+  };
+  return Object(_mui_base__WEBPACK_IMPORTED_MODULE_6__["unstable_composeClasses"])(slots, _toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["getToggleButtonGroupUtilityClass"], classes);
+};
+var ToggleButtonGroupRoot = Object(_styles_styled__WEBPACK_IMPORTED_MODULE_7__["default"])('div', {
+  name: 'MuiToggleButtonGroup',
+  slot: 'Root',
+  overridesResolver: function overridesResolver(props, styles) {
+    var ownerState = props.ownerState;
+    return [_defineProperty({}, "& .".concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].grouped), styles.grouped), _defineProperty({}, "& .".concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].grouped), styles["grouped".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_9__["default"])(ownerState.orientation))]), styles.root, ownerState.orientation === 'vertical' && styles.vertical, ownerState.fullWidth && styles.fullWidth];
+  }
+})(function (_ref3) {
+  var ownerState = _ref3.ownerState,
+    theme = _ref3.theme;
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    display: 'inline-flex',
+    borderRadius: (theme.vars || theme).shape.borderRadius
+  }, ownerState.orientation === 'vertical' && {
+    flexDirection: 'column'
+  }, ownerState.fullWidth && {
+    width: '100%'
+  }, _defineProperty({}, "& .".concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].grouped), Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, ownerState.orientation === 'horizontal' ? _defineProperty({
+    '&:not(:first-of-type)': {
+      marginLeft: -1,
+      borderLeft: '1px solid transparent',
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0
+    },
+    '&:not(:last-of-type)': {
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0
+    }
+  }, "&.".concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].selected, " + .").concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].grouped, ".").concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].selected), {
+    borderLeft: 0,
+    marginLeft: 0
+  }) : _defineProperty({
+    '&:not(:first-of-type)': {
+      marginTop: -1,
+      borderTop: '1px solid transparent',
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0
+    },
+    '&:not(:last-of-type)': {
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0
+    }
+  }, "&.".concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].selected, " + .").concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].grouped, ".").concat(_toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_11__["default"].selected), {
+    borderTop: 0,
+    marginTop: 0
+  }))));
+});
+var ToggleButtonGroup = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function ToggleButtonGroup(inProps, ref) {
+  var props = Object(_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_8__["default"])({
+    props: inProps,
+    name: 'MuiToggleButtonGroup'
+  });
+  var children = props.children,
+    className = props.className,
+    _props$color = props.color,
+    color = _props$color === void 0 ? 'standard' : _props$color,
+    _props$disabled = props.disabled,
+    disabled = _props$disabled === void 0 ? false : _props$disabled,
+    _props$exclusive = props.exclusive,
+    exclusive = _props$exclusive === void 0 ? false : _props$exclusive,
+    _props$fullWidth = props.fullWidth,
+    fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+    onChange = props.onChange,
+    _props$orientation = props.orientation,
+    orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
+    _props$size = props.size,
+    size = _props$size === void 0 ? 'medium' : _props$size,
+    value = props.value,
+    other = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
+  var ownerState = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
+    disabled: disabled,
+    fullWidth: fullWidth,
+    orientation: orientation,
+    size: size
+  });
+  var classes = useUtilityClasses(ownerState);
+  var handleChange = function handleChange(event, buttonValue) {
+    if (!onChange) {
+      return;
+    }
+    var index = value && value.indexOf(buttonValue);
+    var newValue;
+    if (value && index >= 0) {
+      newValue = value.slice();
+      newValue.splice(index, 1);
+    } else {
+      newValue = value ? value.concat(buttonValue) : [buttonValue];
+    }
+    onChange(event, newValue);
+  };
+  var handleExclusiveChange = function handleExclusiveChange(event, buttonValue) {
+    if (!onChange) {
+      return;
+    }
+    onChange(event, value === buttonValue ? null : buttonValue);
+  };
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__["jsx"])(ToggleButtonGroupRoot, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    role: "group",
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className),
+    ref: ref,
+    ownerState: ownerState
+  }, other, {
+    children: react__WEBPACK_IMPORTED_MODULE_2__["Children"].map(children, function (child) {
+      if (! /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](child)) {
+        return null;
+      }
+      if (true) {
+        if (Object(react_is__WEBPACK_IMPORTED_MODULE_3__["isFragment"])(child)) {
+          console.error(["MUI: The ToggleButtonGroup component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+        }
+      }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](child, {
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.grouped, child.props.className),
+        onChange: exclusive ? handleExclusiveChange : handleChange,
+        selected: child.props.selected === undefined ? Object(_isValueSelected__WEBPACK_IMPORTED_MODULE_10__["default"])(child.props.value, value) : child.props.selected,
+        size: child.props.size || size,
+        fullWidth: fullWidth,
+        color: child.props.color || color,
+        disabled: child.props.disabled || disabled
+      });
+    })
+  }));
+});
+ true ? ToggleButtonGroup.propTypes /* remove-proptypes */ = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+  /**
+   * The color of the button when it is selected.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
+   * @default 'standard'
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a /* @typescript-to-proptypes-ignore */.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['standard', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string]),
+  /**
+   * If `true`, the component is disabled. This implies that all ToggleButton children will be disabled.
+   * @default false
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+  /**
+   * If `true`, only allow one of the child ToggleButton values to be selected.
+   * @default false
+   */
+  exclusive: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+  /**
+   * If `true`, the button group will take up the full width of its container.
+   * @default false
+   */
+  fullWidth: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event The event source of the callback.
+   * @param {any} value of the selected buttons. When `exclusive` is true
+   * this is a single value; when false an array of selected values. If no value
+   * is selected and `exclusive` is true the value is null; when false an empty array.
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  /**
+   * The component orientation (layout flow direction).
+   * @default 'horizontal'
+   */
+  orientation: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['horizontal', 'vertical']),
+  /**
+   * The size of the component.
+   * @default 'medium'
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a /* @typescript-to-proptypes-ignore */.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['small', 'medium', 'large']), prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string]),
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool])), prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object]),
+  /**
+   * The currently selected value within the group or an array of selected
+   * values when `exclusive` is false.
+   *
+   * The value must have reference equality with the option in order to be selected.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.any
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (ToggleButtonGroup);
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButtonGroup/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButtonGroup/index.js ***!
+  \***************************************************************/
+/*! exports provided: default, toggleButtonGroupClasses, getToggleButtonGroupUtilityClass */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleButtonGroup */ "./node_modules/@mui/material/ToggleButtonGroup/ToggleButtonGroup.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggleButtonGroupClasses */ "./node_modules/@mui/material/ToggleButtonGroup/toggleButtonGroupClasses.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "toggleButtonGroupClasses", function() { return _toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getToggleButtonGroupUtilityClass", function() { return _toggleButtonGroupClasses__WEBPACK_IMPORTED_MODULE_1__["getToggleButtonGroupUtilityClass"]; });
+
+'use client';
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButtonGroup/isValueSelected.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButtonGroup/isValueSelected.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isValueSelected; });
+// Determine if the toggle button value matches, or is contained in, the
+// candidate group value.
+function isValueSelected(value, candidate) {
+  if (candidate === undefined || value === undefined) {
+    return false;
+  }
+  if (Array.isArray(candidate)) {
+    return candidate.indexOf(value) >= 0;
+  }
+  return value === candidate;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButtonGroup/toggleButtonGroupClasses.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButtonGroup/toggleButtonGroupClasses.js ***!
+  \**********************************************************************************/
+/*! exports provided: getToggleButtonGroupUtilityClass, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getToggleButtonGroupUtilityClass", function() { return getToggleButtonGroupUtilityClass; });
+/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ "./node_modules/@mui/utils/esm/index.js");
+/* harmony import */ var _generateUtilityClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../generateUtilityClass */ "./node_modules/@mui/material/generateUtilityClass/index.js");
+
+
+function getToggleButtonGroupUtilityClass(slot) {
+  return Object(_generateUtilityClass__WEBPACK_IMPORTED_MODULE_1__["default"])('MuiToggleButtonGroup', slot);
+}
+var toggleButtonGroupClasses = Object(_mui_utils__WEBPACK_IMPORTED_MODULE_0__["unstable_generateUtilityClasses"])('MuiToggleButtonGroup', ['root', 'selected', 'vertical', 'disabled', 'grouped', 'groupedHorizontal', 'groupedVertical']);
+/* harmony default export */ __webpack_exports__["default"] = (toggleButtonGroupClasses);
+
+/***/ }),
+
 /***/ "./node_modules/@mui/material/Typography/Typography.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@mui/material/Typography/Typography.js ***!
@@ -40794,10 +41416,13 @@ module.exports = function (module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider.js */ "./srcjs/slider.js");
 /* harmony import */ var _toggl_btn_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggl_btn.js */ "./srcjs/toggl_btn.js");
+/* harmony import */ var _toggl_btn_group_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toggl_btn_group.js */ "./srcjs/toggl_btn_group.js");
+
 
 
 Object(_slider_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_toggl_btn_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+Object(_toggl_btn_group_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 /***/ }),
 
@@ -40986,6 +41611,106 @@ var TogglBtn = function TogglBtn(_ref) {
 };
 function initToggl() {
   return Object(reactR__WEBPACK_IMPORTED_MODULE_0__["reactShinyInput"])('.toggl_btn', 'shiny.material.toggl_btn', TogglBtn);
+}
+
+/***/ }),
+
+/***/ "./srcjs/toggl_btn_group.js":
+/*!**********************************!*\
+  !*** ./srcjs/toggl_btn_group.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return initTogglGroup; });
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! reactR */ "reactR");
+/* harmony import */ var reactR__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(reactR__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/ToggleButton */ "./node_modules/@mui/material/ToggleButton/index.js");
+/* harmony import */ var _mui_material_ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/ToggleButtonGroup */ "./node_modules/@mui/material/ToggleButtonGroup/index.js");
+/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/styles */ "./node_modules/@mui/material/styles/index.js");
+
+
+
+
+
+var TogglBtnGroup = function TogglBtnGroup(_ref) {
+  var configuration = _ref.configuration,
+    value = _ref.value,
+    setValue = _ref.setValue;
+  var theme = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_4__["createTheme"])({
+    status: {
+      danger: configuration.mainColor
+    },
+    palette: {
+      primary: {
+        main: configuration.mainColor,
+        darker: configuration.mainColor
+      },
+      neutral: {
+        main: configuration.mainColor,
+        contrastText: configuration.fontColor
+      }
+    }
+  });
+  var handleChange = function handleChange(event, newVal) {
+    setValue(newVal);
+  };
+  return /*#__PURE__*/React.createElement(_mui_material_styles__WEBPACK_IMPORTED_MODULE_4__["ThemeProvider"], {
+    theme: theme
+  }, /*#__PURE__*/React.createElement(_mui_material_ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    color: "primary",
+    value: value,
+    exclusive: true,
+    onChange: handleChange,
+    "aria-label": "Platform"
+  }, /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field A"
+  }, "Field A"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field B"
+  }, "Field B"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field C"
+  }, "Field C"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field D"
+  }, "Field D"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field E"
+  }, "Field E"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field F"
+  }, "Field F"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field G"
+  }, "Field G"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field H"
+  }, "Field H"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field I"
+  }, "Field I"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field J"
+  }, "Field J"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field K"
+  }, "Field K"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field L"
+  }, "Field L"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field M"
+  }, "Field M"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field N"
+  }, "Field N"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field O"
+  }, "Field O"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field P"
+  }, "Field P"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field Q"
+  }, "Field Q"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field R"
+  }, "Field R"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field S"
+  }, "Field S"), /*#__PURE__*/React.createElement(_mui_material_ToggleButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: "Field T"
+  }, "Field T")));
+};
+function initTogglGroup() {
+  return Object(reactR__WEBPACK_IMPORTED_MODULE_0__["reactShinyInput"])('.toggl_btn_group', 'shiny.material.toggl_btn_group', TogglBtnGroup);
 }
 
 /***/ }),

@@ -5,6 +5,7 @@ ui <- div(
   titlePanel("reactR Input Example"),
   slider_Input("textInput", mainColor = '#885d32'),
   toggl_btn_Input('switch', label = 'Mean value', mainColor = '#885d32', fontColor = '#33d432'),
+  toggl_btn_group_Input('group', value = "Field A"),
   textOutput("textOutput")
 )
 
@@ -33,6 +34,12 @@ server <- function(input, output, session) {
                          )
       )
     }
+
+  })
+
+  observeEvent(input$group, {
+
+    print(input$group)
 
   })
 
