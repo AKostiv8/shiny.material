@@ -1,0 +1,5 @@
+devtools::check()
+devtools::document(quiet = FALSE)
+devtools::load_all()
+devtools::build()
+devtools::install()

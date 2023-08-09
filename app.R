@@ -6,7 +6,8 @@ ui <- div(
   slider_Input("textInput", mainColor = '#885d32'),
   toggl_btn_Input('switch', label = 'Mean value', mainColor = '#885d32', fontColor = '#33d432'),
   toggl_btn_group_Input('group', value = "Field A"),
-  textOutput("textOutput")
+  textOutput("textOutput"),
+  modal_window('modal_tes', obj = list(type = 1, coord = 5))
 )
 
 server <- function(input, output, session) {
@@ -37,10 +38,14 @@ server <- function(input, output, session) {
 
   })
 
-  observeEvent(input$group, {
+  observeEvent(input$added_note_info, {
 
-    print(input$group)
+    print(input$added_note_info)
 
+  })
+
+  observeEvent(input$cancel_modal, {
+    print(input$cancel_modal)
   })
 
 }
