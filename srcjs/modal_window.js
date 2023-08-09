@@ -150,7 +150,7 @@ function ModalWindow(props) {
         onClick={() => {
 
           // Send data to Shiny with the map_id defined in Shiny
-          Shiny.setInputValue('added_note_info', {title: title, decription: description, obj: props.obj}, {priority: "event"});
+          Shiny.setInputValue(props.input_id_add, {title: title, decription: description, obj: props.obj}, {priority: "event"});
           handleClose()
 
         }}
@@ -160,7 +160,7 @@ function ModalWindow(props) {
         sx={{ color: '#3d8361', borderColor: '#3d8361' }}
         onClick={() => {
 
-          Shiny.setInputValue('cancel_modal', Math.random(), {priority: "event"});
+          Shiny.setInputValue(props.input_id_cancel, Math.random(), {priority: "event"});
           handleClose()
 
         }}

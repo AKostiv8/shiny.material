@@ -5,12 +5,14 @@
 #' @import htmlwidgets
 #'
 #' @export
-modal_window <- function(item_id, windowCondition = TRUE, obj = NULL, ...) {
+modal_window <- function(item_id, windowCondition = TRUE, input_id_cancel = 'cancel_modal', input_id_add = 'added_note_info',  obj = NULL, ...) {
 
   configuration <- list(
     item_id = item_id,
     windowCondition = windowCondition,
     obj = obj,
+    input_id_cancel = input_id_cancel,
+    input_id_add = input_id_add,
     # projectionScale    = projectionScale,
     ...
   )

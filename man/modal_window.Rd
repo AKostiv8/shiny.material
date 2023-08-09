@@ -4,7 +4,14 @@
 \alias{modal_window}
 \title{Modal}
 \usage{
-modal_window(item_id, windowCondition = TRUE, obj = NULL, ...)
+modal_window(
+  item_id,
+  windowCondition = TRUE,
+  input_id_cancel = "cancel_modal",
+  input_id_add = "added_note_info",
+  obj = NULL,
+  ...
+)
 }
 \description{
 Create modal
